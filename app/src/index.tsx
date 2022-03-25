@@ -4,9 +4,25 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import {
+  Hardhat,
+  DAppProvider,
+  Config,
+} from '@usedapp/core'
+
+const config: Config = {
+  readOnlyChainId: Hardhat.chainId,
+  readOnlyUrls: {
+    [Hardhat.chainId]: 'http://127.0.0.1:8545/'
+  },
+}
+
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <DAppProvider config={config}>
+      <App />
+    </DAppProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

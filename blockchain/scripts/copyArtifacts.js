@@ -4,7 +4,7 @@ const util = require("util")
 const asyncCopy = util.promisify(copy)
 
 const src = "artifacts/contracts/**/!(*.dbg.json|!(*.json))"
-const dest = "../react-app/src/artifacts/contracts/"
+const dest = "../app/src/artifacts/contracts/"
 
 const copyArtifacts = async () => {
   const files = await asyncCopy(src, dest)
